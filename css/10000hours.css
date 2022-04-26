@@ -1,3 +1,4 @@
+@import url("./reset.css");
 @font-face {
   font-family: "OTEnjoystoriesBA";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff")
@@ -41,6 +42,15 @@
       format("opentype");
 }
 
+@keyframes turnImgCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 body {
   background-color: #5b2386;
 }
@@ -71,11 +81,12 @@ body {
   font-size: 36px;
   line-height: 40px;
   color: #f5df4d;
+  word-break: keep-all;
 }
 
 #app .white-txt {
   margin-top: 76px;
-  width: 493px;
+  width: 100%;
   text-align: center;
   font-weight: 400;
   font-size: 18px;
@@ -83,8 +94,9 @@ body {
   color: #fff;
   background-image: url("../img/quotes.png");
   background-repeat: no-repeat;
-  background-position: 0 10px;
-  background-size: contain;
+  background-position: center 10px;
+  background-size: 493px;
+  word-break: keep-all;
 }
 
 .white-txt .bg-blod-txt {
@@ -94,7 +106,7 @@ body {
 
 .cont-user-input {
   margin-top: 102px;
-  padding-bottom: 147px;
+  padding-bottom: 7px;
   font-weight: 400;
   font-size: 24px;
   line-height: 24px;
@@ -104,6 +116,7 @@ body {
   background-repeat: no-repeat;
   background-size: 64px 72px;
   background-position: 685px 270px;
+  word-break: keep-all;
 }
 
 .cont-user-input .user-input-box {
@@ -114,12 +127,16 @@ body {
   height: 57px;
   background-color: #fff;
   border-radius: 7px;
-  color: #babcbe;
+  color: #000;
   font-weight: 400;
   font-size: 24px;
   line-height: 24px;
   text-align: center;
   border: none;
+}
+
+.cont-user-input .user-input-box::placeholder {
+  color: #babcbe;
 }
 
 .cont-user-input div + div {
@@ -136,14 +153,28 @@ body {
   background-color: #fcee21;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   border-radius: 56px;
+  word-break: keep-all;
 }
 
 .cont-user-input .yellow-btn {
   margin-top: 115px;
 }
 
+.cont-loading-img {
+  margin-top: 147px;
+  text-align: center;
+  display: none;
+}
+
+.cont-loading-img .loading-img {
+  width: 114px;
+  animation: turnImgCW 1s infinite linear;
+}
+
 .cont-result {
   font-family: "GmarketSansMedium";
+  margin-top: 140px;
+  display: none;
 }
 
 .cont-result div {
@@ -158,6 +189,7 @@ body {
   font-size: 24px;
   line-height: 24px;
   color: #fff;
+  word-break: keep-all;
 }
 
 .cont-result strong {
@@ -189,6 +221,7 @@ body {
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   border-radius: 56px;
+  color: #5b2386;
 }
 
 .footer {
@@ -210,24 +243,15 @@ body {
   color: #fff;
 }
 
-.result-modal {
+.result-modal-box {
   display: none;
   position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.result-modal .result-modal-box {
+  text-align: center;
   font-family: "OTEnjoystoriesBA";
   padding: 76px 0 68px;
-  display: flex;
   align-items: center;
   flex-direction: column;
   width: 800px;
-  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -236,24 +260,161 @@ body {
   border-radius: 30px;
 }
 
-.result-modal .modal-title {
+.result-modal-box .modal-title {
   font-weight: 700;
   font-size: 96px;
   line-height: 106px;
   color: #5b2386;
 }
 
-.result-modal .modal-subtxt {
+.result-modal-box .modal-subtxt {
   margin-top: 4px;
   font-weight: 700;
   font-size: 36px;
   line-height: 40px;
 }
 
-.result-modal .licat {
+.result-modal-box .licat {
   margin-top: 29px;
 }
 
-.result-modal .yellow-btn {
+.result-modal-box .yellow-btn {
   margin-top: 74px;
+}
+
+.result-modal-box .yellow-btn div {
+  display: inline;
+}
+
+@media only screen and (max-device-width: 360px) {
+  #app .title {
+    max-width: 267px;
+    height: 126px;
+  }
+  #app .yellow-txt {
+    margin-top: 31px;
+    font-size: 22px;
+    line-height: 24px;
+  }
+  #app .white-txt {
+    margin-top: 62px;
+    font-size: 14px;
+    background-size: 302px;
+    background-position: center;
+  }
+
+  .white-txt .bg-blod-txt {
+    font-size: 14px;
+  }
+
+  .cont-user-input {
+    margin-top: 62px;
+    font-size: 14px;
+    line-height: 14px;
+    background-size: 43px 48px;
+    background-position: 285px 200px;
+  }
+
+  .cont-user-input .user-input-box {
+    margin: 0 4px;
+    width: 156px;
+    height: 37px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .cont-user-input div + div {
+    margin-top: 17px;
+  }
+
+  .cont-user-input div:nth-child(2) label:nth-child(1) {
+    display: block;
+    margin-bottom: 17px;
+  }
+
+  .yellow-btn {
+    padding: 14px 36px;
+    font-size: 14px;
+    line-height: 20px;
+    width: 241px;
+    border-radius: 13px;
+  }
+  .cont-user-input .yellow-btn {
+    margin-top: 49px;
+  }
+
+  .cont-result {
+    margin-top: 64px;
+  }
+  .cont-result p {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .cont-result strong {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .cont-result div + div {
+    margin-top: 15px;
+  }
+
+  .share-btn {
+    padding: 0 19px;
+    font-size: 14px;
+    line-height: 40px;
+    border-radius: 56px;
+  }
+
+  .btn-wrap .yellow-btn {
+    padding: 13px 16px;
+    border-radius: 56px;
+    width: 186px;
+  }
+
+  .copyright-txt {
+    font-size: 9px;
+    line-height: 13px;
+  }
+  .cont-result .btn-wrap {
+    margin-top: 55px;
+  }
+  .footer {
+    margin-top: 83px;
+    background-size: 90px 18px;
+    background-position: center 5px;
+  }
+
+  .result-modal-box {
+    width: 330px;
+    padding: 40px 0;
+  }
+
+  .result-modal-box .modal-title {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 106px;
+    color: #5b2386;
+  }
+
+  .result-modal-box .modal-subtxt {
+    margin-top: 4px;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  .result-modal-box .licat {
+    margin-top: 29px;
+    width: 100%;
+  }
+
+  .result-modal-box .yellow-btn div {
+    display: block;
+  }
+  .result-modal-box .yellow-btn {
+    margin-top: 74px;
+    padding: 19px 17px;
+  }
 }
